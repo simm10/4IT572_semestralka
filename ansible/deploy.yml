@@ -4,9 +4,10 @@
 
   tasks:  
     - name: Gather EC2 information
-      ec2_instance_facts:
-        aws_access_key: 'ASIA4XWXIR5ZZSWNKVK5'
-        aws_secret_key: 'tH3kPoP5RWU/+V3dc40Nea3wKQrGXikCHju9VbzP'
+      community.aws.ec2_instance_info:
+        aws_access_key: 'ASIA4XWXIR5ZX4WR4WVS'
+        aws_secret_key: 'J8mmjgHHE4cimgPeJ7/VGfbsmVAvosWxUKcvh32a'
+        security_token: 'FwoGZXIvYXdzEPX//////////wEaDNtR3Wgkfx0B0XpBnCLFAc5P6E5Qad6vKPX0Ee9W7YWnmUvy2dVm4ruKu4ZL68goXVPjNI7bf315GzPciySvTg3AxjP50qzZ8BjU7ui/u3HL33MLZSTPzm0Ropqt9lDF+gJUt+Qxn9US3LR6pHaUsA7T7z/GKqGozVxVEL/qR5sHhh62xhKuak6AUFph3yOUiPoaIftf/zCRZf7TatH+SsHvKehEUN7lgeV7imjEAjmHlMTd4Xik12drEgh2IWSEF3+DxCmlk6sRXyXVch7+CPLDaqu5KPeKgv8FMi3LuX1q1LKptu8ODWAY0cpLs0QFTs+c/zqbUqRBCPRJlLLg46mVUaTTRi8R7io='
         region: us-east-1
       register: ec2_info
       
@@ -15,8 +16,9 @@
         instance_ids: "{{item.instance_id}}"
         region: us-east-1
         state: absent
-        aws_access_key: 'ASIA4XWXIR5ZZSWNKVK5'
-        aws_secret_key: 'tH3kPoP5RWU/+V3dc40Nea3wKQrGXikCHju9VbzP'
+        aws_access_key: 'ASIA4XWXIR5ZX4WR4WVS'
+        aws_secret_key: 'J8mmjgHHE4cimgPeJ7/VGfbsmVAvosWxUKcvh32a'
+        security_token: 'FwoGZXIvYXdzEPX//////////wEaDNtR3Wgkfx0B0XpBnCLFAc5P6E5Qad6vKPX0Ee9W7YWnmUvy2dVm4ruKu4ZL68goXVPjNI7bf315GzPciySvTg3AxjP50qzZ8BjU7ui/u3HL33MLZSTPzm0Ropqt9lDF+gJUt+Qxn9US3LR6pHaUsA7T7z/GKqGozVxVEL/qR5sHhh62xhKuak6AUFph3yOUiPoaIftf/zCRZf7TatH+SsHvKehEUN7lgeV7imjEAjmHlMTd4Xik12drEgh2IWSEF3+DxCmlk6sRXyXVch7+CPLDaqu5KPeKgv8FMi3LuX1q1LKptu8ODWAY0cpLs0QFTs+c/zqbUqRBCPRJlLLg46mVUaTTRi8R7io='
         wait: yes
       with_items: "{{ec2_info.instances}}"
 
@@ -31,9 +33,9 @@
         wait: 'yes'
         group: eshop
         count: 1
-        aws_access_key: 'ASIA4XWXIR5ZZSWNKVK5'
-        aws_secret_key: 'tH3kPoP5RWU/+V3dc40Nea3wKQrGXikCHju9VbzP'
-        security_token: 'FwoGZXIvYXdzEPH//////////wEaDDsmA6lzYXTFWAwphSLFAQZ5S8ABlierbj4kVaKwQmW0vzmBMI+0TcUcE/5z2nzmQD+L4zK0yzW0V07woj6oBF0KYPVeUqUCcHtrIov8ZrQ3axEeqY9hKMKkaSvdljDRz89SYGAW+NDY4UatRp9xjSpnHvJawHyMXz5cwHHL/SHIWDXwWr4+6iMKLeM1Z1NbQrYd+UpBpmzstswFOpeGKrwnBDwaWTRVfnAOQhccbMCvSKGUrCgDxirFvWNgO2JLpfetIi2sdpjeAVB0vTVuS9SybxTMKJmlgf8FMi2sx/+20Lc/B7lhHEc3onz/OOQbD9iTbqbQWH58zLGybcxXSix1CHXs4us8eZU='
+        aws_access_key: 'ASIA4XWXIR5ZX4WR4WVS'
+        aws_secret_key: 'J8mmjgHHE4cimgPeJ7/VGfbsmVAvosWxUKcvh32a'
+        security_token: 'FwoGZXIvYXdzEPX//////////wEaDNtR3Wgkfx0B0XpBnCLFAc5P6E5Qad6vKPX0Ee9W7YWnmUvy2dVm4ruKu4ZL68goXVPjNI7bf315GzPciySvTg3AxjP50qzZ8BjU7ui/u3HL33MLZSTPzm0Ropqt9lDF+gJUt+Qxn9US3LR6pHaUsA7T7z/GKqGozVxVEL/qR5sHhh62xhKuak6AUFph3yOUiPoaIftf/zCRZf7TatH+SsHvKehEUN7lgeV7imjEAjmHlMTd4Xik12drEgh2IWSEF3+DxCmlk6sRXyXVch7+CPLDaqu5KPeKgv8FMi3LuX1q1LKptu8ODWAY0cpLs0QFTs+c/zqbUqRBCPRJlLLg46mVUaTTRi8R7io='
       register: ec2
       
     - name: Add instance host to group
