@@ -25,7 +25,7 @@
     - name: Launch EC2 instance # Name of the task
       ec2: # Name of the command
         instance_type: t2.micro
-        image: ami-00ddb0e5626798373
+        image: ami-0885b1f6bd170450c
         region: us-east-1
         key_name: test
         vpc_subnet_id: subnet-14860b4b
