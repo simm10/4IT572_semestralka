@@ -25,16 +25,6 @@
         security_token: 'FwoGZXIvYXdzEPH//////////wEaDDsmA6lzYXTFWAwphSLFAQZ5S8ABlierbj4kVaKwQmW0vzmBMI+0TcUcE/5z2nzmQD+L4zK0yzW0V07woj6oBF0KYPVeUqUCcHtrIov8ZrQ3axEeqY9hKMKkaSvdljDRz89SYGAW+NDY4UatRp9xjSpnHvJawHyMXz5cwHHL/SHIWDXwWr4+6iMKLeM1Z1NbQrYd+UpBpmzstswFOpeGKrwnBDwaWTRVfnAOQhccbMCvSKGUrCgDxirFvWNgO2JLpfetIi2sdpjeAVB0vTVuS9SybxTMKJmlgf8FMi2sx/+20Lc/B7lhHEc3onz/OOQbD9iTbqbQWH58zLGybcxXSix1CHXs4us8eZU='
       register: ec2
       
-    - name: Terminate instances that were previously launched
-      become: no
-      amazon.aws.ec2:
-        aws_access_key: 'ASIA4XWXIR5ZZSWNKVK5'
-        aws_secret_key: 'tH3kPoP5RWU/+V3dc40Nea3wKQrGXikCHju9VbzP'
-        security_token: 'FwoGZXIvYXdzEPH//////////wEaDDsmA6lzYXTFWAwphSLFAQZ5S8ABlierbj4kVaKwQmW0vzmBMI+0TcUcE/5z2nzmQD+L4zK0yzW0V07woj6oBF0KYPVeUqUCcHtrIov8ZrQ3axEeqY9hKMKkaSvdljDRz89SYGAW+NDY4UatRp9xjSpnHvJawHyMXz5cwHHL/SHIWDXwWr4+6iMKLeM1Z1NbQrYd+UpBpmzstswFOpeGKrwnBDwaWTRVfnAOQhccbMCvSKGUrCgDxirFvWNgO2JLpfetIi2sdpjeAVB0vTVuS9SybxTMKJmlgf8FMi2sx/+20Lc/B7lhHEc3onz/OOQbD9iTbqbQWH58zLGybcxXSix1CHXs4us8eZU='
-        state: 'absent'
-        region: us-east-1
-        instance_ids: '{{ ec2.instance_ids }}'
-        
     - name: Add instance host to group
       add_host: hostname={{ item.public_dns_name }} groupname=launched # Add all instances to the group name called LAUNCHED
       with_items: '{{ec2.instances}}' # For loop iterating over EC2 instances
