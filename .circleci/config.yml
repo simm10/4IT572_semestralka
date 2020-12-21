@@ -8,9 +8,15 @@ jobs:
     <<: *vse
     steps:
       - checkout
-      - run: npm install
-      - run: npm run test
-      - run: npm run build
+      - run:
+          name: Installing NPM
+          command: npm install
+      - run:
+          name: Running eshop tests
+          command: npm run test
+      - run:
+          name: Building eshop application
+          command: npm run build
       - persist_to_workspace:
           root: .
           paths:
@@ -21,8 +27,6 @@ jobs:
     steps:
       - attach_workspace:
           at: .
-      - run:
-          command: ./node_modules/.bin/firebase deploy --token=$FIREBASE_DEPLOY_TOKEN
         
 workflows:
   version: 2.1
