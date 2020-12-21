@@ -71,8 +71,6 @@
 
     - name: Build docker image with eshop
       shell: cd app && docker build -t eshop:latest .
-      sync: 660 # in seconds
-      poll: 60 # in seconds
       become: yes
 
     - name: Run docker image with eshop
