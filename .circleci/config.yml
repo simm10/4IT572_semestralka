@@ -33,13 +33,13 @@ jobs:
           - "64:aa:3c:b0:28:c0:51:12:ce:f9:02:e3:b0:25:ea:46:16:a3:c9:2a" #AWS SSH key fingerprint
       - run: 
           name: Adding permissions to SSH key file
-          command: chmod 400 secret.pem
+          command: chmod 400 ansible/secret.pem
       - run:
           name: Persisting password to a file 
           command: echo $ANSIBLE_PASS > .ansible_password.txt
       - run:
           name: Invoking ansible playbook
-          command: ansible-playbook ansible/deploy.yml --user ubuntu --key-file secret.pem --vault-pass-file .ansible_password.txt
+          command: ansible-playbook ansible/deploy.yml --user ubuntu --key-file ansible/secret.pem --vault-pass-file .ansible_password.txt
           environment:
             ANSIBLE_HOST_KEY_CHECKING: False
       - run:
