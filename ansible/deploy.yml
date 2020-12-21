@@ -11,7 +11,7 @@
         region: us-east-1
       register: ec2_info
       
-    - name: terminate
+    - name: Terminate running instances
       ec2:
         instance_ids: "{{item.instance_id}}"
         region: us-east-1
@@ -70,12 +70,12 @@
         dest: ./app # Create new folder app in root
 
     - name: Build docker image with eshop
-      shell: cd app && docker build -t myeshop:latest .
+      shell: cd app && docker build -t eshop:latest .
       become: yes
 
     - name: Run docker image with eshop
-      shell: docker run -p 80:3000 myeshop
-      async: 45 # in seconds
+      shell: docker run -p 80:3000 eshop
+      async: 80 # in seconds
       poll: 0 # in seconds
       become: yes
     - wait_for:
