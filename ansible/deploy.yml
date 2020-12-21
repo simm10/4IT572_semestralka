@@ -75,7 +75,7 @@
 
     - name: Run docker image with eshop
       shell: docker run -p 80:3000 eshop
-      async: 80 # in seconds
+      async: 81 # in seconds
       poll: 0 # in seconds
       become: yes
     - wait_for:
