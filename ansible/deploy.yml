@@ -6,17 +6,17 @@
     - name: Launch EC2 instance # Name of the task
       ec2: # Name of the command
         instance_type: t2.micro
-        image: ami-085925f297f89fce1
+        image: ami-0885b1f6bd170450c
         region: us-east-1
-        key_name: test
-        vpc_subnet_id: subnet-d9124294
+        key_name: secret
+        vpc_subnet_id: subnet-14860b4b
         assign_public_ip: 'yes'
         wait: 'yes'
         group: eshop
         count: 1
-        aws_access_key: ''
-        aws_secret_key: ''
-        security_token: ''
+        aws_access_key: 'ASIA4XWXIR5ZZSWNKVK5'
+        aws_secret_key: 'tH3kPoP5RWU/+V3dc40Nea3wKQrGXikCHju9VbzP'
+        security_token: 'FwoGZXIvYXdzEPH//////////wEaDDsmA6lzYXTFWAwphSLFAQZ5S8ABlierbj4kVaKwQmW0vzmBMI+0TcUcE/5z2nzmQD+L4zK0yzW0V07woj6oBF0KYPVeUqUCcHtrIov8ZrQ3axEeqY9hKMKkaSvdljDRz89SYGAW+NDY4UatRp9xjSpnHvJawHyMXz5cwHHL/SHIWDXwWr4+6iMKLeM1Z1NbQrYd+UpBpmzstswFOpeGKrwnBDwaWTRVfnAOQhccbMCvSKGUrCgDxirFvWNgO2JLpfetIi2sdpjeAVB0vTVuS9SybxTMKJmlgf8FMi2sx/+20Lc/B7lhHEc3onz/OOQbD9iTbqbQWH58zLGybcxXSix1CHXs4us8eZU='
       register: ec2
 
     - name: Add instance host to group
