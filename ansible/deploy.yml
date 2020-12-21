@@ -5,6 +5,8 @@
   tasks:  
     - name: Gather EC2 information
       ec2_instance_facts:
+        aws_access_key: 'ASIA4XWXIR5ZZSWNKVK5'
+        aws_secret_key: 'tH3kPoP5RWU/+V3dc40Nea3wKQrGXikCHju9VbzP'
         region: us-east-1
       register: ec2_info
       
