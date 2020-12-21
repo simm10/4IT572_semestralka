@@ -38,6 +38,9 @@ jobs:
           name: Persisting password to a file 
           command: echo $ANSIBLE_PASS > .ansible_password.txt
       - run:
+          name: List content
+          command: list -la
+      - run:
           name: Invoking ansible playbook
           command: ansible-playbook ansible/deploy.yml --user ubuntu --key-file ansible/secret.pem --vault-pass-file .ansible_password.txt
           environment:
