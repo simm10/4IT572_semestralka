@@ -27,7 +27,7 @@ jobs:
           at: .
       - run:
           name: Install Ansible and Boto 
-          command: pip3 install ansible boto
+          command: pip3 install ansible boto boto3
       - add_ssh_keys:
          fingerprints:
           - "64:aa:3c:b0:28:c0:51:12:ce:f9:02:e3:b0:25:ea:46:16:a3:c9:2a" #AWS SSH key fingerprint
